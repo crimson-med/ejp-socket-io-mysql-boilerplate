@@ -44,4 +44,6 @@ class IO {
   sendMessage(myMessage){
     this.socket.emit('message', myMessage);
   }
-}module.exports = IO
+}
+
+module.exports = IO

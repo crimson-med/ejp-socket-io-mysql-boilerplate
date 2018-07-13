@@ -12,27 +12,27 @@ const config = {
 
 const activeEnvironment = 'dev'
 
-export const setupConfig = () => {
+const setupConfig = () => {
   let exportCfg
   if(activeEnvironment === 'test') {
     exportCfg = {
       ...config,
-      ...test()
+      ...test
     }
   }
   else if(activeEnvironment === 'prod') {
     exportCfg = {
       ...config,
-      ...production()
+      ...production
     }
   }
   else {
     exportCfg = {
       ...config,
-      ...dev()
+      ...dev
     }
   }
   return exportCfg
 }
 
-export default setupConfig()
+module.exports = setupConfig()
