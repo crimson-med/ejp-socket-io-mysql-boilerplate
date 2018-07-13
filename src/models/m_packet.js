@@ -16,4 +16,6 @@ class PacketModel {
       this.body = this.body[0];
     }
   }
-}module.exports = PacketModel
+}
+
+module.exports = PacketModel

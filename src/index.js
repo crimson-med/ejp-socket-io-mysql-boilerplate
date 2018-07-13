@@ -7,11 +7,10 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 //const { ExtractJwt, Strategy as JwtStrategy } = require( 'passport-jwt');
 //const { ExtractJwt, JwtStrategy } = require( 'passport-jwt');
 const initializeDb = require( './db');
-//const middleware = require( './middleware');
+// const middleware = require( './middleware');
 //const api = require( './api');
 const config = require( './config');
 const passport = require( 'passport');
-const Strategy = JwtStrategy;
 //const User = require( './models/userModel');
 const IO = require( './socket');
 
@@ -68,5 +67,3 @@ initializeDb.connect(function(err) {
 		console.log(`Started on port ${app.server.address().port}`);
   }
 })
-
-app.exports;
