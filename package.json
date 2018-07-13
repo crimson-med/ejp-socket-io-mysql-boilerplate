@@ -1,0 +1,31 @@
+{
+  "name": "ejp-socket-io-mysql-boilerplate",
+  "version": "1.0.0",
+  "description": "A NodeJS boilerplate for backend using: Express, jwt, passport, socket-io and mysql",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crimson-med/ejp-socket-io-mysql-boilerplate.git"
+  },
+  "author": "Mederic Burlet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crimson-med/ejp-socket-io-mysql-boilerplate/issues"
+  },
+  "homepage": "https://github.com/crimson-med/ejp-socket-io-mysql-boilerplate",
+  "dependencies": {
+    "async": "*",
+    "colors": "*",
+    "express": "*",
+    "mysql": "*",
+    "socket.io": "*",
+    "bcrypt-nodejs": "*",
+    "body-parser": "*",
+    "jsonwebtoken": "*",
+    "passport": "*",
+    "passport-jwt": "*"
+  }
+}
