@@ -8,7 +8,7 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 //const { ExtractJwt, JwtStrategy } = require( 'passport-jwt');
 const initializeDb = require( './db');
 // const middleware = require( './middleware');
-//const api = require( './api');
+const api = require( './api');
 const config = require( './config');
 const passport = require( 'passport');
 //const User = require( './models/userModel');
@@ -36,19 +36,25 @@ const jwtOptions = {
 	jwtFromRequest: ExtractJwt.fromHeader('authorization'),
 }
 passport.serializeUser(function(user, done) {
-  done(null, user.username);
-})
+	console.log(JSON.stringify(user));
+  done(null, user[0].username);
+});
+
 passport.deserializeUser(function(username, done) {
-	User.findOne({ username: username })
-	.then((user) => {
-		return done(user)
-	})
-	.catch(done)
-})
-passport.use('jwt', new JwtStrategy(jwtOptions, (jwt_payload, done) => {
-	User.findOne({ username: jwt_payload.id })
+	console.log('DESER -- '+username);
+	userSchema.checkUsername(username)
 	.then(user => {
-		if(user) return done(null, user)
+		console.log(user[0]);
+  	done(null, user[0]);
+	})
+});
+
+passport.use('jwt', new JwtStrategy(jwtOptions, (jwt_payload, done) => {
+	console.log('Strategy: '+ jwt_payload.id);
+	userSchema.checkUsername(jwt_payload.id)
+	.then(user => {
+		console.log(user[0].username);
+		if(user[0]) return done(null, user)
 		else return done(null, false)
 	})
 }))
@@ -58,9 +64,9 @@ initializeDb.connect(function(err) {
     process.exit(1)
   } else {
 		// internal middleware
-		app.use(middleware({ config, initializeDb }));
+		//app.use(middleware({ config, initializeDb }));
 		// api router
-		app.use('/api', api({ config, initializeDb }));
+		app.use('/api', api({config, initializeDb }));
 		const serv = app.server.listen(config.port);
 		let ioSocket = new IO(serv)
 		ioSocket.init()
