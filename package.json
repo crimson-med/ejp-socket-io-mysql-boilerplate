@@ -4,7 +4,8 @@
   "description": "A NodeJS boilerplate for backend using: Express, jwt, passport, socket-io and mysql",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",

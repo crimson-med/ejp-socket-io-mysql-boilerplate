@@ -1,17 +1,22 @@
 const auth = require( './auth');
+const protected = require( './protected');
 //import { version } from '../../package.json';
-import { Router } from 'express';
-//import facets from './facets';
-//import auth from './auth'
-export default ({ config, db }) => {
-	let api = Router();
+//const import { Router } from 'express';
+const express = require('express');
+const router = express.Router();
 
-	api.use('/auth', auth)
-	// perhaps expose some API metadata at the root
-	api.get('/info', (req, res) => {
-		// res.json({ version });
-		res.sendFile(__dirname + '/index.html');
-	});
 
-	return api;
-}
+
+router.use('/auth', auth);
+router.use('/protected', protected);
+
+router.use(function(req, res, next) {
+  console.log('Something is happening.');
+  next();
+});
+
+router.get('/', function(req, res) {
+  res.send('home page');
+});
+
+module.exports = router;
