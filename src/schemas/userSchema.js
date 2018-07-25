@@ -40,3 +40,15 @@ exports.checkUsernameAndEmail = function(username, email, done) {
     done(null, rows)
   })
 }
+
+/*
+For future me when I have time implement promises instead of callbacks:
+return new Promise((resolve, reject) => {
+  db.get().query('INSERT INTO packets (base_url, cookies, hostname, ip, original_url, params, protocol, query, method, body) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', values, ((err, result) => {
+    if (err) {
+      console.warn(err);
+      reject(err)
+    }
+    resolve(result.insertId)
+  }))
+})*/
