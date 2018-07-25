@@ -40,12 +40,3 @@ exports.checkUsernameAndEmail = function(username, email, done) {
     done(null, rows)
   })
 }
-
-exports.updateConfig = function(config, username, done) {
-  return new Promise((resolve, reject) => {
-    db.get().query(`UPDATE user SET config = ? WHERE username = ?`, [config,username], function (err, result) {
-      if (err) reject(err)
-      resolve(result)
-    })
-  })
-}
