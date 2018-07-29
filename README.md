@@ -111,6 +111,57 @@ router.use('/protected', protected);
 
 With all the important endpoint protected by login.
 
+To protect routes with the login system in `auth` make sure to use: 
+
+```js
+passport.authenticate('jwt')
+```
+<hr>
+
+### Accessing Protected Routes
+
+To be able to access a protected route you first need to login at the: `api/auth/login` endpoint.
+
+The request takes `POST` and two parameters in the body:
+
+- username
+- password
+
+Example:
+
+```js
+var qs = require("querystring");
+var http = require("http");
+
+var options = {
+  "method": "POST",
+  "hostname": "127.0.0.1",
+  "port": "8080",
+  "path": "/api/auth/login",
+  "headers": {
+    "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-cache",
+    "postman-token": "c267a39e-e802-7b83-a0f1-13e8ce27b75b"
+  }
+};
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.write(qs.stringify({ username: 'MyUsername', password: 'MyPassword' }));
+req.end();
+```
+
 <hr>
 
 ### `schemas/userSchema.js`

@@ -7,11 +7,14 @@ const api = require( './api');
 const config = require( './config');
 //const passport = require( 'passport');
 //const User = require( './models/userModel');
+const passport = require('./config/passport');
+
 const IO = require( './socket');
 
 let app = express();
 app.server = http.createServer(app);
-
+app.use(passport.initialize({ session: false }));
+app.use(passport.session());
 // logger id in dev mode
 //if(process.env.NODE_ENV !== 'test') {
 //	app.use(morgan('dev'));
