@@ -181,11 +181,13 @@ This is where you can find a schema of the basic user database with basic useful
 
 If you would like to submit any bugs, issues, improvements please do so in the issues section:
 
-`link to issues`
+[GitHub Issues](https://github.com/crimson-med/ejp-socket-io-mysql-boilerplate/issues)
 
 And try to follow the model given here:
 
-`link model`
+[Bug Report](https://github.com/crimson-med/ejp-socket-io-mysql-boilerplate/blob/master/.github/ISSUE_TEMPLATE/bug_report.md)
+
+[Feature Request](https://github.com/crimson-med/ejp-socket-io-mysql-boilerplate/blob/master/.github/ISSUE_TEMPLATE/feature_request.md)
 
  
 ## More information
