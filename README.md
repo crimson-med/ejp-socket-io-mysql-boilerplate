@@ -12,6 +12,8 @@ A NodeJS boilerplate for backend using: Express, jwt, passport, socket-io and my
 
  4. Execute a `npm install`.
 
+PS: the added user information is: `john:123456789`
+
 ## Running the project
 
 To initiate the project modify the configuration files and then execute:
@@ -190,10 +192,10 @@ And try to follow the model given here:
 
 For more information read my blog post:
 
-`link`
+[http://medericburlet.com/ejp-socket-io-mysql-boilerplate/](http://medericburlet.com/ejp-socket-io-mysql-boilerplate/)
 
 Feel free to use it for your projects just please mention the author as the licence explains:
 
-`licence link`
+[MIT Licence](https://github.com/crimson-med/ejp-socket-io-mysql-boilerplate/blob/master/LICENSE)
 
 Coded with :heart: by Mederic Burlet
