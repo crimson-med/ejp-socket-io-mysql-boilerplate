@@ -198,4 +198,4 @@ Feel free to use it for your projects just please mention the author as the lice
 
 [MIT Licence](https://github.com/crimson-med/ejp-socket-io-mysql-boilerplate/blob/master/LICENSE)
 
-Coded with :heart: by Mederic Burlet
+Coded with :heart: by [Mederic Burlet](http://medericburlet.com)
