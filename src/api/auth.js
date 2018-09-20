@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.use(function(req, res, next) {
   console.log('Something is happening in Auth');
+  console.log(req.body);
   next();
 });
 
@@ -22,7 +23,7 @@ router.post('/login', function(req, res) {
   		bcrypt.compare(req.body.password, user.password, (err, result) => {
   			if(result) {
                 console.log("signed id: " + req.body.username);
-  				const token = jwt.sign({id: req.body.username},  config.jwtSecret)
+  				const token = jwt.sign({id: req.body.username},  config.jwtSecret, {expiresIn: '5m'})
   				return res.status(200).json({ message: 'ok', token })
   			}
   			else {
